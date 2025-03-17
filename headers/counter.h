@@ -12,7 +12,7 @@ public:
     virtual void countDown();
 
 protected:
-    Counter(int minutes, int seconds)
+    Counter*(int minutes, int seconds)
    
 
 private:
