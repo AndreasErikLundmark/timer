@@ -1,6 +1,6 @@
 #include "counter.h"
 
-using namespace std;  // Only use if necessary
+using namespace std; 
 
 Counter* Counter::create(int minutes, int seconds)
 {
