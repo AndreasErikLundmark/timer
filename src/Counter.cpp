@@ -13,7 +13,7 @@ Counter::Counter(int minutes, int seconds)
 
 
 Counter::~Counter() {
-    std::cout << "Counter deleted" << std::endl;
+   
 }
 
 
@@ -29,12 +29,25 @@ int Counter::countDown() {
         minutes--;
         seconds = 59;
     } else {
+        printEnd();
         return 0;
+        
     
     }
+    printTime();
     return 1;
 
 
 }
+void Counter::printTime(){
+     std::cout << "\033[2J\033[H"; 
+    std::cout << "Min: " << minutes << " Seconds: " << seconds << std::endl;
+}
+
+void Counter::printEnd(){
+    std::cout << "\033[2J\033[H"; 
+    std::cout << "Time is Up!!!"<< std::endl;
+}
+
 
 

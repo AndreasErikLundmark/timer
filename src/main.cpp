@@ -12,10 +12,6 @@ int main() {
     TimerThread timerThread(timer);
     timerThread.start();
 
-    
-    std::this_thread::sleep_for(std::chrono::seconds(5));
-    std::cout << "Main thread is still running..." << std::endl;
-
    
     timerThread.stop();
 
