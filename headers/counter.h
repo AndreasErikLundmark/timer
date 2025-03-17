@@ -12,6 +12,8 @@ public:
     virtual void countDown();
     virtual ~Counter();
     virtual void destroy();
+    void start();
+    void stop();
 
 protected:
     Counter(int minutes, int seconds);

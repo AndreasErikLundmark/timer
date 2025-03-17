@@ -30,4 +30,14 @@ void Counter::countDown() {
     } else {
         // Time is up
     }
+
+
+}
+
+voit Counter::start() {
+    while (minutes > 0 || seconds > 0) {
+        countDown();
+        std::cout << minutes << ":" << seconds << std::endl;
+    }
+    std::cout << "Time is up!" << std::endl;
 }
