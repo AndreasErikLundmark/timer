@@ -8,11 +8,13 @@ class Counter
 {
 
 public:
-    static create(int minutes, int seconds);
+    static Counter* create(int minutes, int seconds);
     virtual void countDown();
+    virtual ~Counter();
+    virtual void destroy();
 
 protected:
-    Counter*(int minutes, int seconds)
+    Counter(int minutes, int seconds);
    
 
 private:
