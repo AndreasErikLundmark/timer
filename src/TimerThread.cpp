@@ -29,11 +29,11 @@ void TimerThread::stop(){
 }
 void TimerThread::run(){
     int counting = 1;
-    while(counting!=0){
+    while(running && counting != 0){
         counting= counter->countDown();
         std::this_thread::sleep_for(std::chrono::seconds(1));
-
     }
+   
 }
 
 

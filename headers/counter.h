@@ -14,6 +14,7 @@ public:
     virtual void destroy();
     void printTime();
     void printEnd();
+    void printUserInfo();
 
 
 protected:

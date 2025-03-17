@@ -30,11 +30,14 @@ int Counter::countDown() {
         seconds = 59;
     } else {
         printEnd();
+        printUserInfo();
         return 0;
         
     
     }
     printTime();
+    printUserInfo();
+
     return 1;
 
 
@@ -47,6 +50,10 @@ void Counter::printTime(){
 void Counter::printEnd(){
     std::cout << "\033[2J\033[H"; 
     std::cout << "Time is Up!!!"<< std::endl;
+}
+
+void Counter::printUserInfo(){
+     std::cout << "'S': START!, 'P': Pause, 'R': Restart, 'Q': Quit " << std::endl;
 }
 
 
