@@ -11,7 +11,7 @@ class TimerThread
     public: 
     TimerThread(Counter* counter);
 
-    virtual ~TimerThread();
+    ~TimerThread();
     
     void start();
     void stop();
