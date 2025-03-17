@@ -1,7 +1,7 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
-#include <termios.h>  // For instant key detection on macOS/Linux
+#include <termios.h>  
 #include <unistd.h>
 #include "counter.h"
 #include "timerThread.h"
@@ -34,10 +34,10 @@ int main() {
     Counter* timer = Counter::create(minutes, seconds);
     TimerThread* timerThread = new TimerThread(timer);
 
-    std::cout << "Press 'S' to start, 'P' to pause, 'R' to restart, 'Q' to quit..." << std::endl;
+    std::cout << "Press 'S' to start, 'P' to pause, ,'C' to continue, 'R' to restart, 'Q' to quit..." << std::endl;
 
     while (true) {
-        command = getKeyPress();  // Read key press instantly
+        command = getKeyPress();  
 
         switch (command) {
             case 'S': case 's': 

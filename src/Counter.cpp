@@ -59,10 +59,11 @@ void Counter::printEnd(){
 
 void Counter::printUserInfo(){
    
-     std::cout << "'S': START!, 'P': Pause, 'R': Restart, 'Q': Quit " << std::endl;
-        std::cout << "------------------------------------------------" << std::endl;
+        std::cout << "Press 'S' to start, 'P' to pause, ,'C' to continue, 'R' to restart, 'Q' to quit..." << std::endl;
+        std::cout << "----------------------------------------------------------------------------------" << std::endl;
         std::cout<<""<< std::endl;
 }
+
 
 
 
