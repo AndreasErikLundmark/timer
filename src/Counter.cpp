@@ -29,31 +29,39 @@ int Counter::countDown() {
         minutes--;
         seconds = 59;
     } else {
+      
+     
         printEnd();
-        printUserInfo();
+      
         return 0;
         
     
     }
+  
     printTime();
-    printUserInfo();
+    
 
     return 1;
 
 
 }
 void Counter::printTime(){
-     std::cout << "\033[2J\033[H"; 
+     std::cout << "\033[2J\033[H";
+      printUserInfo(); 
     std::cout << "Min: " << minutes << " Seconds: " << seconds << std::endl;
 }
 
 void Counter::printEnd(){
     std::cout << "\033[2J\033[H"; 
+     printUserInfo();
     std::cout << "Time is Up!!!"<< std::endl;
 }
 
 void Counter::printUserInfo(){
+   
      std::cout << "'S': START!, 'P': Pause, 'R': Restart, 'Q': Quit " << std::endl;
+        std::cout << "------------------------------------------------" << std::endl;
+        std::cout<<""<< std::endl;
 }
 
 

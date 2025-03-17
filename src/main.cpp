@@ -50,6 +50,11 @@ int main() {
                 timerThread->stop();
                 break;
 
+            case 'C': case 'c':
+                std::cout << "\nContinue the timer...\n";
+                 timerThread->start();
+                break;
+
             case 'R': case 'r': 
                 std::cout << "\nRestarting the timer...\n";
                 timerThread->stop();
@@ -67,14 +72,14 @@ int main() {
                 break;
 
             case 'Q': case 'q': 
-                std::cout << "\nQuitting the program...\n";
+                std::cout << "\nQuitting...\n";
                 timerThread->stop();
                 delete timerThread;
                 timer->destroy();
                 return 0;
 
             default:
-                // std::cout << "\nInvalid command! Use 'S', 'P', 'R', or 'Q'.\n";
         }
     }
 }
+
