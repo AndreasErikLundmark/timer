@@ -21,23 +21,19 @@ void Counter::destroy() {
 }
 
 
-void Counter::countDown() {
+int Counter::countDown() {
     if (seconds > 0) {
         seconds--;
     } else if (minutes > 0) {
         minutes--;
         seconds = 59;
     } else {
-        // Time is up
+        return 0;
+    
     }
+    return 1;
 
 
 }
 
-voit Counter::start() {
-    while (minutes > 0 || seconds > 0) {
-        countDown();
-        std::cout << minutes << ":" << seconds << std::endl;
-    }
-    std::cout << "Time is up!" << std::endl;
-}
+

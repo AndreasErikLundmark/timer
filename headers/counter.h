@@ -9,7 +9,7 @@ class Counter
 
 public:
     static Counter* create(int minutes, int seconds);
-    virtual void countDown();
+    virtual int countDown();
     virtual ~Counter();
     virtual void destroy();
     void start();

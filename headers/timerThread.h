@@ -8,8 +8,11 @@
 
 class TimerThread
 {
-    public TimerThread(Counter* counter);
+    public: 
+    TimerThread(Counter* counter);
+
     virtual ~TimerThread();
+    
     void start();
     void stop();
 
