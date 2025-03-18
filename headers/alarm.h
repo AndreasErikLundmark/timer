@@ -9,6 +9,7 @@ public:
     static Alarm* create(std::string alarmUrl);
     void play();
     void stop();
+    void resume();
     ~Alarm();
 
 protected:

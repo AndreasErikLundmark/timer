@@ -33,7 +33,7 @@ int main() {
 
     std::cout << "Enter seconds: ";
     std::cin >> seconds;
-    Alarm* alarm = Alarm::create("resources/birds_ambient.mp3");
+    Alarm* alarm = Alarm::create("resources/alarm2.mp3");
     Counter* timer = Counter::create(minutes, seconds,alarm);
     TimerThread* timerThread = new TimerThread(timer);
 
@@ -51,6 +51,7 @@ int main() {
             case 'P': case 'p': 
                 std::cout << "\nPausing the timer...\n";
                 timerThread->stop();
+                alarm->stop();
                 break;
 
             case 'C': case 'c':
@@ -61,6 +62,7 @@ int main() {
             case 'R': case 'r': 
                 std::cout << "\nRestarting the timer...\n";
                 timerThread->stop();
+                alarm->stop();
                 delete timerThread;
                 delete timer;
                 

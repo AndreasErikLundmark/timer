@@ -2,6 +2,7 @@
 #include <iostream>
 #include "counter.h"
 #include "timerThread.h"
+#include "alarm.h"
 
 TimerThread::TimerThread(Counter* counter) : counter(counter)
 {
@@ -17,7 +18,6 @@ void TimerThread::start()
     if(!running){
         running = true;
         timerThread = std::thread(&TimerThread::run, this);
-
     }
 }
 void TimerThread::stop(){
@@ -25,6 +25,7 @@ void TimerThread::stop(){
     if(timerThread.joinable()){
         timerThread.join();
     }
+    
 
 }
 void TimerThread::run(){

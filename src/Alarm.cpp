@@ -1,5 +1,6 @@
 #include "alarm.h"
 
+#include <SDL2/SDL.h>
 #include <SDL2/SDL_mixer.h>
 #include <string>
 
@@ -14,18 +15,23 @@ Alarm* Alarm::create(std::string alarmUrl){
 }
 
 void Alarm::play(){
-    alarm = Mix_LoadMUS((alarmUrl).c_str());
+    alarm = Mix_LoadMUS((alarmUrl).c_str());        
     Mix_PlayMusic(alarm, -1);
 }
 
-// void Alarm::stop(){
-//      Mix_P
-// }
+void Alarm::stop(){
+    //  Mix_HaltMusic(-1);
+     Mix_HaltMusic();
+}
+
+void Alarm::resume(){
+    Mix_Resume(-1);
+}
 
 Alarm::~Alarm() {
     Mix_FreeMusic(alarm);
     Mix_CloseAudio();
-    // SDL_Quit();
+    SDL_Quit();
 }
 
        

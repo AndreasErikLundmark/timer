@@ -5,6 +5,7 @@
 #include "counter.h"
 #include <thread>
 #include <atomic>
+#include "alarm.h"
 
 class TimerThread
 {
