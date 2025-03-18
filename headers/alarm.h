@@ -14,8 +14,9 @@ class Alarm
         Alarm(String alarmUrl);
 
     private:
-         Mix_Music *alarm;
+        Mix_Music *alarm;
         String alarmUrl;
+        Alarm* alarm;
 }
 
 

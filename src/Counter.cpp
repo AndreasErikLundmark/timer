@@ -8,8 +8,8 @@ Counter* Counter::create(int minutes, int seconds)
     return new Counter(minutes, seconds);
 }
 
-Counter::Counter(int minutes, int seconds) 
-    : minutes(minutes), seconds(seconds) {} 
+Counter::Counter(int minutes, int seconds, Alarm* alarm) 
+    : minutes(minutes), seconds(seconds), alarm(alarm) {} 
 
 
 Counter::~Counter() {
@@ -30,9 +30,8 @@ int Counter::countDown() {
         seconds = 59;
     } else {
       
-     
         printEnd();
-      
+        alarm->start();
         return 0;
         
     

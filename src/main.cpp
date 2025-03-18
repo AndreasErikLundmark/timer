@@ -32,8 +32,8 @@ int main() {
 
     std::cout << "Enter seconds: ";
     std::cin >> seconds;
-
-    Counter* timer = Counter::create(minutes, seconds);
+    Alarm* alarm = new Alarm("resources/birds_ambient.mp3")
+    Counter* timer = Counter::create(minutes, seconds,alarm);
     TimerThread* timerThread = new TimerThread(timer);
 
     std::cout << "Press 'S' to start, 'P' to pause, ,'C' to continue, 'R' to restart, 'Q' to quit..." << std::endl;
