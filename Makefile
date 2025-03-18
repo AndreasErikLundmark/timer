@@ -9,14 +9,13 @@ APP_DIR = TimerApp.app
 APP_BIN = $(APP_DIR)/Contents/MacOS/TimerApp
 PLIST_FILE = $(APP_DIR)/Contents/Info.plist
 
+LINKER_FLAGS = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf
 
-all: $(TARGET)
 
+all: $(TARGET) 
 
 $(TARGET): $(SRC)
-	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)
-
-
+	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET) $(LINKER_FLAGS) 
 
 mac: $(TARGET)
 	@echo "Creating mac app..."
