@@ -1,5 +1,7 @@
 #define ALARM_M
 
+#include <SDL2/SDL_mixer.h>
+
 class Alarm
 {
 

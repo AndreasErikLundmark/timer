@@ -1,6 +1,5 @@
-
 CXX = g++
-CXXFLAGS = -std=c++17 -pthread -Iheaders
+CXXFLAGS = -std=c++17 -pthread -Iheaders $(shell sdl2-config --cflags)
 
 SRC = src/main.cpp src/TimerThread.cpp src/Counter.cpp
 TARGET = TimerApp
@@ -9,13 +8,12 @@ APP_DIR = TimerApp.app
 APP_BIN = $(APP_DIR)/Contents/MacOS/TimerApp
 PLIST_FILE = $(APP_DIR)/Contents/Info.plist
 
-LINKER_FLAGS = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf
-
+LINKER_FLAGS = $(shell sdl2-config --libs) -lSDL2_image -lSDL2_mixer -lSDL2_ttf
 
 all: $(TARGET) 
 
 $(TARGET): $(SRC)
-	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET) $(LINKER_FLAGS) 
+	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET) $(LINKER_FLAGS)
 
 mac: $(TARGET)
 	@echo "Creating mac app..."
@@ -28,14 +26,14 @@ mac: $(TARGET)
 	cp $(TARGET) $(APP_BIN)
 	chmod +x $(APP_BIN)
 
-	
+	# Create launcher script
 	echo "#!/bin/bash" > $(APP_BIN)_launcher
 	echo "DIR=\"\$(dirname \"\$0\")\"" >> $(APP_BIN)_launcher
 	echo "/usr/bin/open -a Terminal \"\$$DIR/TimerApp\"" >> $(APP_BIN)_launcher
 	chmod +x $(APP_BIN)_launcher
 	mv $(APP_BIN)_launcher $(APP_BIN)
 
-	
+	# Generate Info.plist
 	echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" > $(PLIST_FILE)
 	echo "<plist version=\"1.0\">" >> $(PLIST_FILE)
 	echo "<dict>" >> $(PLIST_FILE)
@@ -49,7 +47,6 @@ mac: $(TARGET)
 	echo "</plist>" >> $(PLIST_FILE)
 
 	@echo "Mac App Created!"
-
 
 clean:
 	rm -rf $(TARGET) $(APP_DIR)
