@@ -1,14 +1,18 @@
 CXX = g++
-CXXFLAGS = -std=c++17 -pthread -Iheaders $(shell sdl2-config --cflags)
+CXXFLAGS = -std=c++17 -pthread -Iheaders $(shell pkg-config --cflags sdl2 SDL2_mixer)
+LINKER_FLAGS = $(shell pkg-config --libs sdl2 SDL2_mixer) -lSDL2_image -lSDL2_ttf
 
-SRC = src/main.cpp src/TimerThread.cpp src/Counter.cpp
+
+
+
+SRC = src/main.cpp src/TimerThread.cpp src/Counter.cpp src/Alarm.cpp
 TARGET = TimerApp
 
 APP_DIR = TimerApp.app
 APP_BIN = $(APP_DIR)/Contents/MacOS/TimerApp
 PLIST_FILE = $(APP_DIR)/Contents/Info.plist
 
-LINKER_FLAGS = $(shell sdl2-config --libs) -lSDL2_image -lSDL2_mixer -lSDL2_ttf
+# LINKER_FLAGS = $(shell sdl2-config --libs) -lSDL2_image -lSDL2_mixer -lSDL2_ttf
 
 all: $(TARGET) 
 

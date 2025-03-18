@@ -1,11 +1,12 @@
 #include "counter.h"
 #include <iostream>
+#include "alarm.h"
 
 using namespace std; 
 
-Counter* Counter::create(int minutes, int seconds)
+Counter* Counter::create(int minutes, int seconds, Alarm* alarm)
 {
-    return new Counter(minutes, seconds);
+    return new Counter(minutes, seconds, alarm);
 }
 
 Counter::Counter(int minutes, int seconds, Alarm* alarm) 
@@ -31,7 +32,7 @@ int Counter::countDown() {
     } else {
       
         printEnd();
-        alarm->start();
+        alarm->play();
         return 0;
         
     
