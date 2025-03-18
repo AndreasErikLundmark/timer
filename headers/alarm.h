@@ -10,13 +10,12 @@ class Alarm
      void start();
      void stop();
     
-
     protected:
-        Alarm();
-
+        Alarm(String alarmUrl);
 
     private:
-    
+         Mix_Music *alarm;
+        String alarmUrl;
 }
 
 
