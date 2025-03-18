@@ -25,6 +25,7 @@ int main() {
     std::cout << "----------------------------------------" << std::endl;
     std::cout << "| Welcome to Terminal Alarm Timer!!!!! |" << std::endl;
     std::cout << "----------------------------------------" << std::endl;
+    std::cout << "" << std::endl;
     
     std::cout << "Enter minutes: ";
     std::cin >> minutes;
