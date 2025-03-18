@@ -2,6 +2,8 @@
 
 A timer alarm that runs in the terminal. 
 
+SDL needs to be installed. ( used for audio player )
+
 To compile:
 
 * make clean
