@@ -2,7 +2,7 @@ CXX = g++
 CXXFLAGS = -std=c++17 -pthread -Iheaders $(shell pkg-config --cflags sdl2 SDL2_mixer)
 LINKER_FLAGS = $(shell pkg-config --libs sdl2 SDL2_mixer) -lSDL2_image -lSDL2_ttf
 
-SRC = src/main.cpp src/TimerThread.cpp src/Counter.cpp src/Alarm.cpp
+SRC = src/main.cpp src/TimerThread.cpp src/Counter.cpp src/Alarm.cpp src/Ticking.cpp
 TARGET = TimerApp
 
 APP_DIR = TimerApp.app

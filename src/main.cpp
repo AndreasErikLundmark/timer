@@ -6,6 +6,7 @@
 #include "counter.h"
 #include "timerThread.h"
 #include "alarm.h"
+#include "ticking.h"
 
 
 char getKeyPress() {
@@ -34,7 +35,8 @@ int main() {
     std::cout << "Enter seconds: ";
     std::cin >> seconds;
     Alarm* alarm = Alarm::create("resources/alarm2.mp3");
-    Counter* timer = Counter::create(minutes, seconds,alarm);
+    Ticking* ticking = Ticking::create("resources/clockTick.mp3");
+    Counter* timer = Counter::create(minutes, seconds,alarm, ticking);
     TimerThread* timerThread = new TimerThread(timer);
 
     std::cout << "Press 'S' to start, 'P' to pause, ,'C' to continue, 'R' to restart, 'Q' to quit..." << std::endl;
@@ -71,7 +73,7 @@ int main() {
                 std::cout << "Enter new seconds: ";
                 std::cin >> seconds;
                 
-                timer = Counter::create(minutes, seconds,alarm);
+                timer = Counter::create(minutes, seconds,alarm,ticking);
                 timerThread = new TimerThread(timer);
                 timerThread->start();
                 break;

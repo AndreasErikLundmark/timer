@@ -10,10 +10,10 @@ public:
     void play();
     void stop();
     void resume();
-    ~Alarm();
+    ~Ticking();
 
 protected:
-    Alarm(std::string tickingUrl);
+    Ticking(std::string tickingUrl);
 
 private:
     Mix_Music* ticking;

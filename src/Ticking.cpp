@@ -5,18 +5,18 @@
 #include <string>
 
 
-Ticking::Ticking(std::string alarmUrl):alarmUrl(tickingUrl){
+Ticking::Ticking(std::string tickingUrl):tickingUrl(tickingUrl){
     
     Mix_OpenAudio(20050, AUDIO_S16SYS, 2, 4096);
 }
 
 Ticking* Ticking::create(std::string tickingUrl){
-    return new Alarm(tickingUrl);
+    return new Ticking(tickingUrl);
 }
 
 void Ticking::play(){
-    alarm = Mix_LoadMUS((tickingUrl).c_str());        
-    Mix_PlayMusic(alarm, -1);
+    ticking = Mix_LoadMUS((tickingUrl).c_str());        
+    Mix_PlayMusic(ticking, -1);
 }
 
 void Ticking::stop(){
@@ -29,7 +29,7 @@ void Ticking::resume(){
 }
 
 Ticking::~Ticking() {
-    Mix_FreeMusic(alarm);
+    Mix_FreeMusic(ticking);
     Mix_CloseAudio();
     SDL_Quit();
 }

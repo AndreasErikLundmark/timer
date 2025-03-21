@@ -1,16 +1,17 @@
 #include "counter.h"
 #include <iostream>
 #include "alarm.h"
+#include "ticking.h"
 
 using namespace std; 
 
-Counter* Counter::create(int minutes, int seconds, Alarm* alarm)
+Counter* Counter::create(int minutes, int seconds, Alarm* alarm, Ticking* ticking)
 {
-    return new Counter(minutes, seconds, alarm);
+    return new Counter(minutes, seconds, alarm, ticking);
 }
 
-Counter::Counter(int minutes, int seconds, Alarm* alarm) 
-    : minutes(minutes), seconds(seconds), alarm(alarm) {} 
+Counter::Counter(int minutes, int seconds, Alarm* alarm, Ticking* ticking) 
+    : minutes(minutes), seconds(seconds), alarm(alarm), ticking(ticking) {} 
 
 
 Counter::~Counter() {
@@ -24,6 +25,7 @@ void Counter::destroy() {
 
 
 int Counter::countDown() {
+    ticking->play();
     if (seconds > 0) {
         seconds--;
     } else if (minutes > 0) {
@@ -32,9 +34,9 @@ int Counter::countDown() {
     } else {
       
         printEnd();
+        ticking->stop();
         alarm->play();
         return 0;
-        
     
     }
   
