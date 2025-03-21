@@ -9,8 +9,6 @@ APP_DIR = TimerApp.app
 APP_BIN = $(APP_DIR)/Contents/MacOS/TimerApp
 PLIST_FILE = $(APP_DIR)/Contents/Info.plist
 
-# LINKER_FLAGS = $(shell sdl2-config --libs) -lSDL2_image -lSDL2_mixer -lSDL2_ttf
-
 all: $(TARGET) 
 
 $(TARGET): $(SRC)

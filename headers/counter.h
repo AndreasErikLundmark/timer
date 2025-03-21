@@ -7,6 +7,7 @@
 
 
 
+
 class Counter
 {
 
@@ -28,9 +29,7 @@ private:
     int minutes;
     int seconds;
     Alarm* alarm;
-    Ticking* ticking;
-    
-    
+    Ticking* ticking;    
 };
 
 #endif

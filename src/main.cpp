@@ -8,7 +8,7 @@
 #include "alarm.h"
 #include "ticking.h"
 
-
+// getKeyPress lets key command trigger emidiately without the need of pressing enter 
 char getKeyPress() {
     struct termios oldt, newt;
     char ch;
@@ -34,6 +34,7 @@ int main() {
 
     std::cout << "Enter seconds: ";
     std::cin >> seconds;
+
     Alarm* alarm = Alarm::create("resources/alarm2.mp3");
     Ticking* ticking = Ticking::create("resources/clockTick.mp3");
     Counter* timer = Counter::create(minutes, seconds,alarm, ticking);

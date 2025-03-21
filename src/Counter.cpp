@@ -56,7 +56,9 @@ void Counter::printTime(){
 void Counter::printEnd(){
     std::cout << "\033[2J\033[H"; 
      printUserInfo();
+
     std::cout << "Time is Up!!!"<< std::endl;
+    
 }
 
 void Counter::printUserInfo(){
