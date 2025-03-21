@@ -6,7 +6,6 @@
 
 
 Alarm::Alarm(std::string alarmUrl):alarmUrl(alarmUrl){
-    // SDL_Init(SDL_INIT_EVERYTHING);
     Mix_OpenAudio(20050, AUDIO_S16SYS, 2, 4096);
 }
 

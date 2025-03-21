@@ -5,9 +5,6 @@
 #include "alarm.h"
 #include "ticking.h"
 
-
-
-
 class Counter
 {
 
